@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 1 of 9 - Preparing Your Download | Mega Store</title>
+    <meta name="description" content="Your download is being prepared. Please wait while we verify the file and prepare it for secure download. Mega Store provides fast and secure file downloads.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .step-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .step-header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .step-counter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .step-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .step-dot.active {
+            background: white;
+            color: #6366f1;
+        }
+        .ad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ad-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .content-section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .content-section p {
+            line-height: 2;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .timer-box {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .timer-display {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+        .continue-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 400px;
+        }
+        .continue-btn:disabled {
+            background: var(--bg-tertiary);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .continue-btn:not(:disabled):hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-box {
+            background: var(--bg-primary);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .image-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .image-content img {
+            width: 100%;
+            border-radius: 12px;
+        }
+        @media (max-width: 768px) {
+            .image-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mega Store" style="height: 40px; width: auto;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="step-container">
+        <div class="step-header">
+            <div class="step-counter">
+                <div class="step-dot active">1</div>
+                <div class="step-dot">2</div>
+                <div class="step-dot">3</div>
+                <div class="step-dot">4</div>
+                <div class="step-dot">5</div>
+                <div class="step-dot">6</div>
+                <div class="step-dot">7</div>
+                <div class="step-dot">8</div>
+                <div class="step-dot">9</div>
+            </div>
+            <h1><i class="fas fa-cog fa-spin"></i> Preparing Your Download</h1>
+            <p>Step 1 of 9 - Please wait while we verify and prepare your file</p>
+        </div>
+
+        <!-- Ad Section 1 -->
+        <div class="ad-grid">
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 1 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 2 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 3 - 300x250</div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-shield-alt"></i> Welcome to Mega Store - Your Trusted Download Platform</h2>
+            
+            <div class="image-content">
+                <div>
+                    <p>Mega Store has established itself as one of India's premier digital platforms, serving millions of users who seek reliable, fast, and secure download experiences. Our platform has been meticulously designed to cater to the diverse needs of modern internet users who demand nothing but the best when it comes to accessing digital content. With our state-of-the-art infrastructure and user-centric approach, we have successfully created an ecosystem that prioritizes both speed and security.</p>
+                    
+                    <p>Our journey began with a simple yet powerful vision: to create a platform that eliminates the frustrations commonly associated with online downloads. We understood that users were tired of slow download speeds, broken links, and security concerns. This understanding drove us to develop Mega Store as a comprehensive solution that addresses all these pain points while delivering an exceptional user experience that keeps our community coming back for more.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500" alt="Secure Downloads">
+            </div>
+
+            <p>The digital landscape has evolved dramatically over the past decade, and with it, the expectations of users have grown exponentially. At Mega Store, we have consistently stayed ahead of these evolving trends by implementing cutting-edge technologies and best practices. Our platform leverages advanced caching mechanisms, distributed server networks, and intelligent routing algorithms to ensure that every download request is handled with maximum efficiency.</p>
+
+            <p>Security remains at the forefront of everything we do at Mega Store. We understand that in today's interconnected world, protecting user data and ensuring safe downloads is not just a feature but a fundamental responsibility. Our multi-layered security architecture includes real-time file scanning, malware detection, and SSL encryption to safeguard every transaction that occurs on our platform. This unwavering commitment to security has earned us the trust of millions of users across India and beyond.</p>
+
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Lightning Fast</h4>
+                    <p>Download speeds up to 10x faster than conventional methods</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>100% Secure</h4>
+                    <p>Every file is scanned for malware and viruses before delivery</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-infinity"></i>
+                    <h4>Unlimited Downloads</h4>
+                    <p>No restrictions on the number of files you can download</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-headset"></i>
+                    <h4>24/7 Support</h4>
+                    <p>Our dedicated team is always ready to assist you</p>
+                </div>
+            </div>
+
+            <p>What sets Mega Store apart from other download platforms is our relentless focus on user satisfaction. We believe that every interaction with our platform should be smooth, intuitive, and rewarding. This philosophy is reflected in our clean interface design, which eliminates clutter and presents users with exactly what they need, when they need it. Whether you're a tech-savvy professional or someone who is just beginning to explore the digital world, Mega Store offers an experience that is accessible to all.</p>
+
+            <p>Our platform supports a wide variety of file types and formats, making it a one-stop destination for all your download needs. From documents and images to videos and software applications, Mega Store handles them all with equal proficiency. We have also implemented intelligent file compression techniques that reduce download times without compromising on quality, ensuring that you get your files faster while consuming less bandwidth.</p>
+
+            <div class="image-content">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Analytics Dashboard">
+                <div>
+                    <p>The Mega Store dashboard provides users with comprehensive insights into their download activities. You can track your download history, monitor bandwidth usage, and manage your preferences all from a single, centralized location. This level of transparency and control is something our users have come to appreciate and rely on for managing their digital content consumption effectively.</p>
+                    
+                    <p>We also understand the importance of community in the digital age. Mega Store fosters a vibrant community of users who share recommendations, provide feedback, and help us improve our services continuously. Through forums, social media channels, and direct communication, we maintain an open dialogue with our users that informs our development roadmap and ensures that we are always building features that matter.</p>
+                </div>
+            </div>
+
+            <p>As we continue to grow and evolve, Mega Store remains committed to its core values of speed, security, and simplicity. We are constantly exploring new technologies and partnerships that can enhance our platform's capabilities and deliver even greater value to our users. Our team of dedicated professionals works tirelessly behind the scenes to maintain the high standards that have become synonymous with the Mega Store brand.</p>
+
+            <p>Looking ahead, we envision Mega Store becoming the definitive download platform not just in India but across the globe. Our expansion plans include adding support for more languages, integrating with additional payment systems, and developing mobile applications that bring the Mega Store experience to smartphones and tablets. The future is bright, and we are excited to have you as part of our journey.</p>
+
+            <p>Thank you for choosing Mega Store for your download needs. We are honored by your trust and remain committed to exceeding your expectations at every turn. As you proceed with your download, rest assured that you are in good hands with a platform that puts your needs first and never compromises on quality or security.</p>
+        </div>
+
+        <!-- Ad Section 2 -->
+        <div class="ad-grid">
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 4 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 5 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 6 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 7 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 8 - 300x250</div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-info-circle"></i> Understanding Our Download Process</h2>
+            <p>The download process at Mega Store has been engineered to provide the optimal balance between speed and security. When you initiate a download through our platform, multiple systems work in harmony to ensure that your file is delivered quickly and safely. This multi-step verification process, while it may add a few moments to your overall experience, is crucial for maintaining the integrity of our platform and protecting our users from potential threats.</p>
+
+            <p>Our verification process begins the moment you click on a download link. The system first checks the file against our extensive database of known safe files. If the file is recognized, it moves through the process more quickly. For new or unrecognized files, we perform a comprehensive scan using multiple antivirus engines to ensure that no malicious content slips through. This thorough approach has helped us maintain a perfect security record since our inception.</p>
+
+            <p>During the preparation phase, which is what you are currently experiencing, our servers are working to optimize the file for delivery. This includes compressing the file where appropriate, checking for any corruption, and preparing multiple download sources to ensure redundancy. If one server is experiencing high load, the system automatically routes your request to another server, ensuring consistent performance regardless of traffic conditions.</p>
+
+            <p>We also implement geographic optimization to ensure that your download comes from the server closest to your location. This reduces latency and improves download speeds significantly. Our network of servers spans multiple locations across India and internationally, providing comprehensive coverage that benefits users regardless of where they are accessing our platform from.</p>
+        </div>
+
+        <!-- Ad Section 3 -->
+        <div class="ad-grid">
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 9 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 10 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 11 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 12 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 13 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 14 - 300x250</div>
+            <div class="ad-placeholder"><i class="fas fa-ad"></i> Ad Space 15 - 300x250</div>
+        </div>
+
+        <div class="timer-box">
+            <h3><i class="fas fa-clock"></i> Please Wait</h3>
+            <div class="timer-display" id="timer">15</div>
+            <p>Seconds remaining before you can proceed to the next step</p>
+        </div>
+
+        <div style="text-align: center; padding: 30px;">
+            <button class="continue-btn" id="continueBtn" disabled>
+                <i class="fas fa-arrow-right"></i> Continue to Next Step
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mega Store. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Timer functionality
+        let timeLeft = 15;
+        const timerDisplay = document.getElementById('timer');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                continueBtn.disabled = false;
+                continueBtn.innerHTML = '<i class="fas fa-arrow-right"></i> Continue to Next Step';
+            }
+        }, 1000);
+        
+        // Get original URL from localStorage
+        continueBtn.addEventListener('click', () => {
+            const originalUrl = localStorage.getItem('megaStoreOriginalUrl');
+            const shortCode = localStorage.getItem('megaStoreShortCode');
+            if (originalUrl) {
+                window.location.href = `short2.html#${shortCode}`;
+            }
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('megaStoreTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('megaStoreTheme', newTheme);
+        });
+    </script>
+</body>
+</html>

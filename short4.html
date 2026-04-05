@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 4 of 9 - Processing Download | Mega Store</title>
+    <meta name="description" content="We are processing your download request and optimizing the file for fastest delivery. Mega Store provides high-speed downloads with maximum efficiency.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .step4-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .wave-header {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 0 0 50% 50%;
+            text-align: center;
+            margin: -20px -20px 40px;
+        }
+        .wave-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .step-pills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .step-pill {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            border-radius: 25px;
+            font-size: 0.85rem;
+        }
+        .step-pill.done {
+            background: #10b981;
+            color: white;
+        }
+        .step-pill.current {
+            background: var(--primary);
+            color: white;
+            animation: glow 1.5s infinite;
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px var(--primary); }
+            50% { box-shadow: 0 0 20px var(--primary); }
+        }
+        .ad-mosaic {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .mosaic-ad {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .mosaic-ad.large {
+            grid-column: span 2;
+            grid-row: span 2;
+            min-height: 515px;
+        }
+        .content-block {
+            background: var(--bg-card);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6);
+        }
+        .content-block h2 {
+            color: #06b6d4;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+        .content-block p {
+            line-height: 2.2;
+            margin-bottom: 20px;
+        }
+        .flip-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 35px 0;
+        }
+        .flip-card {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .flip-card:hover {
+            transform: rotateY(10deg);
+        }
+        .flip-card i {
+            font-size: 3rem;
+            color: #06b6d4;
+            margin-bottom: 20px;
+        }
+        .hexagon-timer {
+            width: 180px;
+            height: 200px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .continue-action {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+        }
+        .continue-action:disabled {
+            background: var(--bg-tertiary);
+        }
+        @media (max-width: 768px) {
+            .ad-mosaic { grid-template-columns: repeat(2, 1fr); }
+            .mosaic-ad.large { grid-column: span 2; grid-row: span 1; min-height: 250px; }
+            .flip-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mega Store" style="height: 40px;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="step4-container">
+        <div class="wave-header">
+            <h1><i class="fas fa-cogs fa-spin"></i> Processing Your Download</h1>
+            <p>Step 4 of 9 - Optimizing for fastest delivery</p>
+        </div>
+
+        <div class="step-pills">
+            <div class="step-pill done"><i class="fas fa-check"></i> Verify</div>
+            <div class="step-pill done"><i class="fas fa-check"></i> Check</div>
+            <div class="step-pill done"><i class="fas fa-check"></i> Scan</div>
+            <div class="step-pill current">4. Process</div>
+            <div class="step-pill">5. Optimize</div>
+            <div class="step-pill">6. Prepare</div>
+            <div class="step-pill">7. Package</div>
+            <div class="step-pill">8. Final</div>
+            <div class="step-pill">9. Done</div>
+        </div>
+
+        <div class="ad-mosaic">
+            <div class="mosaic-ad large"><i class="fas fa-ad fa-3x"></i><br>Large Ad - 300x600</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 2</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 3</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 4</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 5</div>
+        </div>
+
+        <div class="content-block">
+            <h2><i class="fas fa-microchip"></i> Advanced Processing Technology at Work</h2>
+
+            <p>The processing phase of your download represents the culmination of sophisticated technological systems working in harmony to deliver the best possible experience. At Mega Store, we have invested years of research and development into creating a processing pipeline that optimizes every aspect of file delivery, from compression algorithms to server routing decisions.</p>
+
+            <p>When a file enters our processing system, the first step is intelligent analysis. Our algorithms examine the file type, size, structure, and content to determine the optimal processing strategy. Different file types require different approaches - a video file might benefit from format optimization, while a document might be better served with compression. This adaptive approach ensures that each file receives the treatment best suited to its characteristics.</p>
+
+            <p>Compression is one of the key processing techniques we employ. However, unlike simple compression tools that apply the same algorithm to everything, our system uses content-aware compression that selects the most appropriate method for each file. For images, we might use next-generation formats like WebP or AVIF that offer superior compression without quality loss. For documents, we employ specialized algorithms that can reduce file sizes by up to 80% while maintaining full fidelity.</p>
+
+            <div class="flip-cards">
+                <div class="flip-card">
+                    <i class="fas fa-compress-arrows-alt"></i>
+                    <h4>Smart Compression</h4>
+                    <p>Reduces file size by up to 70%</p>
+                </div>
+                <div class="flip-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>CDN Routing</h4>
+                    <p>Nearest server delivery</p>
+                </div>
+                <div class="flip-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>Multi-Threading</h4>
+                    <p>Parallel processing</p>
+                </div>
+            </div>
+
+            <p>Our Content Delivery Network (CDN) is a critical component of the processing system. With servers strategically located across India and around the world, we can serve files from locations that minimize latency and maximize throughput. When you request a download, our intelligent routing system analyzes your location, network conditions, and server load to select the optimal delivery path. This dynamic optimization happens in real-time, ensuring that you always get the fastest possible download speed.</p>
+
+            <p>The processing system also handles format conversion when beneficial. For media files, we can convert to more efficient formats on-the-fly, reducing download times while maintaining quality. For documents, we can optimize fonts, images, and structure to create smaller, faster-loading files. These conversions happen transparently, with no action required from the user.</p>
+
+            <p>Another important aspect of our processing is caching optimization. Frequently accessed files are stored in multiple cache layers, from edge servers close to users to high-speed SSD arrays in our data centers. This multi-tier caching strategy ensures that popular content is always available with minimal latency, while less frequently accessed files are retrieved from deeper storage when needed.</p>
+
+            <p>We also employ predictive loading techniques that anticipate user needs based on patterns and behaviors. If our system detects that you are likely to download certain types of files, it may proactively cache related content, reducing wait times for subsequent downloads. This intelligent anticipation is one of the reasons why Mega Store users consistently report faster download experiences compared to other platforms.</p>
+
+            <p>The processing pipeline includes extensive quality assurance checks to ensure that optimizations do not compromise file integrity. Every processed file is verified against the original to ensure that no data has been lost or corrupted. This commitment to quality means that you can trust Mega Store to deliver files that are not only fast to download but also completely intact and functional.</p>
+
+            <p>Environmental responsibility is also a consideration in our processing design. By optimizing file sizes and delivery routes, we reduce the energy consumption associated with data transfer. Our data centers use renewable energy where possible, and our algorithms are designed to minimize computational overhead. This means that choosing Mega Store is not just good for your download experience - it's also better for the planet.</p>
+
+            <p>As we continue to innovate, our processing systems are becoming increasingly intelligent. Machine learning models analyze download patterns to predict demand, pre-position content, and optimize resource allocation. These AI-driven improvements mean that the Mega Store experience gets better over time, with downloads becoming faster and more reliable as our systems learn and adapt.</p>
+        </div>
+
+        <div class="ad-mosaic">
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 6</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 7</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 8</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 9</div>
+            <div class="mosaic-ad large"><i class="fas fa-ad fa-3x"></i><br>Large Ad - 300x600</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 10</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 11</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 12</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 13</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 14</div>
+            <div class="mosaic-ad"><i class="fas fa-ad"></i><br>Ad 15</div>
+        </div>
+
+        <div class="content-block">
+            <h2><i class="fas fa-server"></i> Infrastructure Excellence Behind Every Download</h2>
+            
+            <p>The invisible infrastructure that powers Mega Store represents one of the most advanced download delivery networks in the industry. Our architecture has been designed from the ground up to handle massive scale while maintaining the reliability and performance that our users expect. Every component has been carefully selected and optimized to work together as a cohesive system.</p>
+
+            <p>At the core of our infrastructure are high-performance servers equipped with the latest processors, ample RAM, and fast storage systems. These servers are distributed across multiple data centers, each connected to the internet through multiple high-bandwidth links from different providers. This redundancy ensures that even if one connection fails, traffic can be seamlessly rerouted through alternative paths.</p>
+
+            <p>Our network architecture employs anycast routing, which allows multiple servers to share the same IP address. When you connect to Mega Store, your request is automatically routed to the nearest available server, minimizing latency and maximizing speed. This approach also provides natural load balancing, as traffic is distributed across all available servers based on geographic proximity.</p>
+
+            <p>Storage is another critical component of our infrastructure. We use a tiered storage strategy that balances speed and cost. Hot content that is frequently accessed is stored on high-speed SSD arrays that can serve thousands of requests per second. Less frequently accessed content is stored on larger, more cost-effective storage systems, with intelligent caching ensuring that popular content is promoted to faster storage tiers as needed.</p>
+
+            <p>Monitoring and observability are essential for maintaining infrastructure health. Our systems generate millions of data points every minute, tracking everything from server performance to network latency to application errors. This data is analyzed in real-time to detect anomalies, predict potential issues, and inform capacity planning decisions. The result is a platform that is not only fast and reliable today but also prepared for future growth.</p>
+        </div>
+
+        <div class="hexagon-timer" id="timer">20</div>
+
+        <button class="continue-action" id="continueBtn" disabled>
+            <i class="fas fa-arrow-circle-right"></i> Continue to Step 5
+        </button>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mega Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let timeLeft = 20;
+        const timerDisplay = document.getElementById('timer');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                continueBtn.disabled = false;
+            }
+        }, 1000);
+        
+        continueBtn.addEventListener('click', () => {
+            const shortCode = localStorage.getItem('megaStoreShortCode');
+            window.location.href = `short5.html#${shortCode}`;
+        });
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('megaStoreTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('megaStoreTheme', newTheme);
+        });
+    </script>
+</body>
+</html>

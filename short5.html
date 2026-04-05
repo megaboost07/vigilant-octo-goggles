@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 5 of 9 - Optimizing File | Mega Store</title>
+    <meta name="description" content="We are optimizing your file for the best download experience. Mega Store uses advanced optimization techniques to ensure fast and efficient file delivery.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .step5-wrap {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .orbit-header {
+            background: radial-gradient(circle at center, #8b5cf6 0%, #6366f1 100%);
+            color: white;
+            padding: 60px 30px;
+            border-radius: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .orbit-header::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: rotate 10s linear infinite;
+            top: -50%;
+            left: -50%;
+        }
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+        .orbit-header h1 {
+            position: relative;
+            z-index: 1;
+        }
+        .linear-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .l-step {
+            padding: 12px 25px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        .l-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            color: var(--text-muted);
+        }
+        .l-step:last-child::after {
+            display: none;
+        }
+        .l-step.completed {
+            background: #10b981;
+            color: white;
+        }
+        .l-step.active {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .ad-strips {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .strip-ad {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+        .content-card {
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+            border-radius: 25px;
+            padding: 45px;
+            margin: 30px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        .content-card h2 {
+            color: #f59e0b;
+            font-size: 2.1rem;
+            margin-bottom: 30px;
+        }
+        .content-card p {
+            line-height: 2.3;
+            margin-bottom: 22px;
+            font-size: 1.05rem;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 35px 0;
+        }
+        .metric-card {
+            background: var(--bg-primary);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border-top: 4px solid #f59e0b;
+        }
+        .metric-card h3 {
+            font-size: 2.5rem;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        .floating-timer {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ef4444, #f59e0b);
+            color: white;
+            padding: 25px 40px;
+            border-radius: 20px;
+            font-size: 2rem;
+            font-weight: 800;
+            box-shadow: 0 10px 40px rgba(239, 68, 68, 0.4);
+            z-index: 100;
+        }
+        .center-btn {
+            text-align: center;
+            padding: 40px;
+        }
+        .center-btn button {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            padding: 25px 80px;
+            font-size: 1.4rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+        .center-btn button:disabled {
+            background: var(--bg-tertiary);
+            box-shadow: none;
+        }
+        @media (max-width: 768px) {
+            .metric-grid { grid-template-columns: repeat(2, 1fr); }
+            .floating-timer { bottom: 10px; right: 10px; padding: 15px 25px; font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mega Store" style="height: 40px;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="step5-wrap">
+        <div class="orbit-header">
+            <h1><i class="fas fa-magic"></i> Optimizing Your File</h1>
+            <p>Step 5 of 9 - Making it perfect for you</p>
+        </div>
+
+        <div class="linear-steps">
+            <div class="l-step completed"><i class="fas fa-check"></i> Verified</div>
+            <div class="l-step completed"><i class="fas fa-check"></i> Checked</div>
+            <div class="l-step completed"><i class="fas fa-check"></i> Scanned</div>
+            <div class="l-step completed"><i class="fas fa-check"></i> Processed</div>
+            <div class="l-step active">Optimizing</div>
+            <div class="l-step">Prepare</div>
+            <div class="l-step">Package</div>
+            <div class="l-step">Final</div>
+            <div class="l-step">Done</div>
+        </div>
+
+        <div class="ad-strips">
+            <div class="strip-ad"><i class="fas fa-ad fa-lg"></i> Banner Ad - 728x90</div>
+            <div class="strip-ad"><i class="fas fa-ad fa-lg"></i> Banner Ad - 728x90</div>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-wand-magic-sparkles"></i> The Art and Science of File Optimization</h2>
+
+            <p>File optimization is both an art and a science at Mega Store. It requires deep technical knowledge of file formats, compression algorithms, and delivery mechanisms, combined with a nuanced understanding of user needs and expectations. Our optimization pipeline represents years of refinement and continuous improvement, resulting in a system that consistently delivers exceptional results.</p>
+
+            <p>The optimization process begins with a comprehensive analysis of the file's structure and content. Our algorithms examine every aspect of the file, from header information to payload data, identifying opportunities for optimization that might not be apparent to conventional tools. This deep inspection allows us to apply targeted optimizations that maximize size reduction while preserving functionality and quality.</p>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <h3>70%</h3>
+                    <p>Avg. Size Reduction</p>
+                </div>
+                <div class="metric-card">
+                    <h3>3x</h3>
+                    <p>Faster Downloads</p>
+                </div>
+                <div class="metric-card">
+                    <h3>0%</h3>
+                    <p>Quality Loss</p>
+                </div>
+                <div class="metric-card">
+                    <h3>100%</h3>
+                    <p>Compatibility</p>
+                </div>
+            </div>
+
+            <p>For image files, our optimization system employs a multi-step process that can dramatically reduce file sizes while maintaining visual quality. We first analyze the image content to determine the optimal format - photographs might benefit from JPEG compression, while graphics with solid colors might be better suited to PNG or WebP. We then apply format-specific optimizations, adjusting compression parameters to find the sweet spot between size and quality.</p>
+
+            <p>Our image optimization also includes intelligent resizing capabilities. If an image is larger than necessary for its intended use, we can create optimized versions at appropriate dimensions. This is particularly valuable for web use, where serving appropriately sized images can significantly improve page load times and user experience. All of this happens automatically, with no manual intervention required.</p>
+
+            <p>Video file optimization is another area where Mega Store excels. Video files are typically the largest files users download, making optimization particularly impactful. Our system can convert videos to more efficient formats like H.265/HEVC or AV1, which offer significantly better compression than older formats. We can also adjust resolution, frame rate, and bitrate to create versions optimized for different use cases and connection speeds.</p>
+
+            <p>Document optimization focuses on reducing file size while preserving formatting and functionality. For PDF files, we employ techniques like font subsetting, image recompression, and structure optimization that can reduce file sizes by 50% or more. For Office documents, we clean up unnecessary metadata, optimize embedded media, and apply format-specific compressions that maintain full editability.</p>
+
+            <p>Software and application files receive specialized treatment in our optimization pipeline. We analyze the file structure to identify redundant or unnecessary components that can be safely removed. For installer packages, we can often extract and optimize individual components, creating smaller, more efficient packages that install faster and use less disk space.</p>
+
+            <p>The benefits of optimization extend beyond faster downloads. Smaller files consume less storage space on your devices, use less bandwidth (particularly important for users with data caps), and can be transferred more quickly between devices. They also put less strain on our infrastructure, allowing us to serve more users with the same resources, which contributes to our ability to offer free services.</p>
+
+            <p>Our optimization algorithms are constantly evolving. We monitor the latest research in compression and optimization techniques, implementing promising approaches as they become practical. Machine learning plays an increasingly important role, with models trained to predict optimal optimization parameters based on file characteristics. This continuous improvement ensures that Mega Store users always benefit from the state of the art.</p>
+
+            <p>Transparency is important to us, which is why we provide detailed information about the optimizations applied to each file. You can see exactly how much the file size was reduced and what techniques were used. This information helps users understand the value they're receiving and builds trust in our optimization processes.</p>
+        </div>
+
+        <div class="ad-strips">
+            <div class="strip-ad"><i class="fas fa-ad fa-lg"></i> Banner Ad - 728x90</div>
+            <div class="strip-ad"><i class="fas fa-ad fa-lg"></i> Banner Ad - 728x90</div>
+            <div class="strip-ad"><i class="fas fa-ad fa-lg"></i> Banner Ad - 728x90</div>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-rocket"></i> Performance Optimization: Beyond File Size</h2>
+            
+            <p>While reducing file size is a key aspect of optimization, Mega Store's approach goes far beyond simple compression. We optimize every aspect of the download experience to ensure that users receive their files as quickly and efficiently as possible. This holistic approach to performance optimization sets us apart from platforms that focus solely on file size reduction.</p>
+
+            <p>One of the most impactful optimizations we apply is intelligent caching. By analyzing download patterns and predicting which files are likely to be requested, we can pre-position content on servers close to where demand is expected. This proactive approach means that when you request a file, it's often already waiting on a nearby server, ready for immediate delivery.</p>
+
+            <p>We also optimize the transport layer of downloads, using protocols and configurations that maximize throughput. This includes TCP parameter tuning, congestion control algorithm selection, and buffer size optimization. These technical adjustments, while invisible to users, can significantly improve download speeds, particularly for larger files or users on slower connections.</p>
+
+            <p>Connection persistence is another optimization technique we employ. By keeping connections open and reusing them for multiple requests, we eliminate the overhead of establishing new connections for each file. This is particularly beneficial when downloading multiple files or when a download is interrupted and needs to be resumed.</p>
+
+            <p>Our optimization pipeline also includes preparation for different network conditions. We create multiple versions of files optimized for different connection speeds, allowing us to serve the most appropriate version based on the user's current network conditions. This adaptive approach ensures optimal performance regardless of whether you're on a fast fiber connection or a slower mobile network.</p>
+        </div>
+
+        <div class="center-btn">
+            <button id="continueBtn" disabled>
+                <i class="fas fa-arrow-right"></i> Continue to Step 6
+            </button>
+        </div>
+    </div>
+
+    <div class="floating-timer" id="timer">14</div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mega Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let timeLeft = 14;
+        const timerDisplay = document.getElementById('timer');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerDisplay.style.display = 'none';
+                continueBtn.disabled = false;
+            }
+        }, 1000);
+        
+        continueBtn.addEventListener('click', () => {
+            const shortCode = localStorage.getItem('megaStoreShortCode');
+            window.location.href = `short6.html#${shortCode}`;
+        });
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('megaStoreTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('megaStoreTheme', newTheme);
+        });
+    </script>
+</body>
+</html>

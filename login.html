@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Access Your Account | Axon AI Shortener</title>
+    <meta name="description" content="Login to your Axon AI Shortener account. Track your earnings, manage links, and withdraw your money.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🔗</div>
+                Axon AI
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shortener.html">Shortener</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                    <div class="logo-icon">🔗</div>
+                </div>
+                <h2>Welcome Back!</h2>
+                <p>Login to access your dashboard and earnings</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                        <input type="checkbox" id="rememberMe" style="width: 18px; height: 18px;">
+                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Remember me</span>
+                    </label>
+                    <a href="#" style="color: var(--primary); font-size: 0.9rem;">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login to Account
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up free</a></p>
+            </div>
+            
+            <!-- Social Login (Optional) -->
+            <div style="margin-top: 2rem; text-align: center;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Or continue with</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button class="btn btn-secondary" style="flex: 1;" onclick="showNotification('Google login coming soon!', 'info')">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="btn btn-secondary" style="flex: 1;" onclick="showNotification('Facebook login coming soon!', 'info')">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features for New Users -->
+    <section class="section" style="background: var(--bg-secondary); padding: 60px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h3>Why Join Axon AI Shortener?</h3>
+                <p>Start your journey to earning money online today</p>
+            </div>
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h4>₹82 Per 1000 Views</h4>
+                    <p style="color: var(--text-muted);">Highest payout rate in India</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="background: var(--gradient-2);">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h4>₹100 Min. Payout</h4>
+                    <p style="color: var(--text-muted);">Withdraw to UPI instantly</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="background: var(--gradient-3);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Real-Time Stats</h4>
+                    <p style="color: var(--text-muted);">Track clicks and earnings live</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="background: var(--success);">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p style="color: var(--text-muted);">We're here to help anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">🔗</div>
+                        Axon AI
+                    </a>
+                    <p>India's highest paying URL shortener.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Axon AI Shortener. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Logging in...</p>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>

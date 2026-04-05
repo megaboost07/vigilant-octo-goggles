@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 6 of 9 - Preparing Package | Mega Store</title>
+    <meta name="description" content="We are preparing your download package for secure delivery. Mega Store ensures your files are packaged safely for transfer.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .step6-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .gradient-bar {
+            background: linear-gradient(90deg, #10b981 0%, #10b981 66%, var(--bg-tertiary) 66%);
+            height: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .ad-cluster {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .cluster-ad {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .cluster-ad.wide {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+        .cluster-ad.tall {
+            grid-row: span 2;
+            aspect-ratio: 1/2;
+        }
+        .article-panel {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 25px 0;
+            border-left: 5px solid #ec4899;
+        }
+        .article-panel h2 {
+            color: #ec4899;
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+        }
+        .article-panel p {
+            line-height: 2.2;
+            margin-bottom: 18px;
+        }
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .icon-item {
+            text-align: center;
+        }
+        .icon-item i {
+            font-size: 3.5rem;
+            color: #ec4899;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .diamond-timer {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            transform: rotate(45deg);
+            margin: 50px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+        .diamond-timer span {
+            transform: rotate(-45deg);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+        }
+        .action-area {
+            text-align: center;
+            padding: 40px;
+            background: var(--bg-card);
+            border-radius: 20px;
+        }
+        .action-btn {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            color: white;
+            padding: 22px 70px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .action-btn:disabled {
+            background: var(--bg-tertiary);
+        }
+        @media (max-width: 768px) {
+            .ad-cluster { grid-template-columns: repeat(3, 1fr); }
+            .cluster-ad.wide { grid-column: span 2; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mega Store" style="height: 40px;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="step6-container">
+        <div class="gradient-bar">66% Complete - Step 6 of 9</div>
+
+        <div class="ad-cluster">
+            <div class="cluster-ad wide"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad tall"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad wide"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+        </div>
+
+        <div class="article-panel">
+            <h2><i class="fas fa-box-open"></i> Preparing Your Download Package</h2>
+
+            <p>The packaging phase of your download is where all the previous steps come together to create a seamless delivery experience. At Mega Store, we view packaging as more than just bundling files - it's about creating a complete, optimized delivery unit that ensures your content arrives quickly, safely, and ready to use.</p>
+
+            <p>Our packaging system begins by gathering all the components that will be included in your download. This might include the main file, any associated metadata, checksums for verification, and optional components like documentation or related files. Each component is carefully prepared and positioned within the package structure for optimal delivery.</p>
+
+            <div class="icon-row">
+                <div class="icon-item">
+                    <i class="fas fa-file-archive"></i>
+                    <p>Archive</p>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-lock"></i>
+                    <p>Encrypt</p>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-signature"></i>
+                    <p>Sign</p>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <p>Deliver</p>
+                </div>
+            </div>
+
+            <p>Compression is applied during packaging to reduce the overall size of the download. We use modern compression algorithms that offer excellent compression ratios while maintaining fast decompression speeds. The specific algorithm is selected based on the content type - some algorithms work better for text, others for binary data, and we automatically choose the most appropriate option.</p>
+
+            <p>Integrity protection is built into every package we create. Cryptographic checksums are generated for each component and for the package as a whole. These checksums serve two purposes: they allow the receiving system to verify that the download completed successfully without corruption, and they provide assurance that the content has not been tampered with during transit.</p>
+
+            <p>For sensitive content, we offer optional encryption as part of the packaging process. This uses industry-standard encryption algorithms to protect the content from unauthorized access. Even if the download were intercepted, the encrypted content would be useless without the proper decryption key. This additional layer of security is particularly valuable for confidential business documents or personal information.</p>
+
+            <p>The package structure itself is designed for efficiency. Headers and metadata are positioned to allow the receiving system to quickly understand the package contents without having to scan through the entire file. This enables faster processing and reduces the time between download completion and content availability.</p>
+
+            <p>We also include version information and compatibility data in every package. This helps the receiving system determine if it can properly handle the content and what processing might be required. For software packages, this might include system requirements and dependency information. For media files, it might include codec requirements and supported playback devices.</p>
+
+            <p>Error recovery capabilities are built into our packaging format. Should a download be interrupted, the package structure allows for efficient resumption from the point of failure rather than starting over. This saves time and bandwidth, particularly for large downloads or users on unstable connections.</p>
+
+            <p>The packaging process also considers the end-user experience. We organize content in logical ways that make it easy to find what you're looking for. Documentation is clearly labeled, related files are grouped together, and the overall structure is intuitive. This attention to organization might seem like a small detail, but it significantly improves the experience of working with downloaded content.</p>
+
+            <p>Our packaging system is designed to be forward-compatible, meaning that packages created today will remain accessible in the future. We avoid proprietary formats that might become obsolete, instead using well-documented, widely supported standards. This commitment to longevity ensures that your downloads remain useful for years to come.</p>
+        </div>
+
+        <div class="ad-cluster">
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad wide"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad tall"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad wide"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+            <div class="cluster-ad"><i class="fas fa-ad"></i></div>
+        </div>
+
+        <div class="article-panel">
+            <h2><i class="fas fa-network-wired"></i> Delivery Infrastructure Excellence</h2>
+            
+            <p>The infrastructure that powers Mega Store's delivery system represents a significant investment in reliability, speed, and global reach. Our network spans multiple continents, with points of presence in strategic locations that ensure fast, reliable access for users regardless of their geographic location.</p>
+
+            <p>Each of our data centers is equipped with redundant power, cooling, and network connectivity to ensure continuous operation. We employ multiple internet service providers at each location, with automatic failover that ensures service continuity even if one provider experiences issues. This redundancy extends to every component of our infrastructure, from servers to switches to storage systems.</p>
+
+            <p>Our network architecture is designed for performance. We use anycast routing to direct user requests to the nearest available server, minimizing latency and maximizing throughput. This geographic distribution means that a user in Mumbai might be served from a server in India, while a user in London might be served from a server in Europe, both experiencing optimal performance.</p>
+
+            <p>Load balancing is critical to maintaining performance during traffic spikes. Our systems continuously monitor server load and distribute incoming requests to ensure that no single server becomes overwhelmed. This dynamic load balancing happens automatically and transparently, maintaining optimal performance even during peak usage periods.</p>
+
+            <p>We also employ advanced caching strategies that keep popular content readily available. Frequently accessed files are stored in multiple cache tiers, from fast in-memory caches to high-speed SSD arrays. This multi-tier approach ensures that the most popular content can be served almost instantaneously, while less frequently accessed content is retrieved from deeper storage when needed.</p>
+        </div>
+
+        <div class="diamond-timer">
+            <span id="timer">10</span>
+        </div>
+
+        <div class="action-area">
+            <button class="action-btn" id="continueBtn" disabled>
+                <i class="fas fa-arrow-right"></i> Continue to Step 7
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mega Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let timeLeft = 10;
+        const timerDisplay = document.getElementById('timer');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                continueBtn.disabled = false;
+            }
+        }, 1000);
+        
+        continueBtn.addEventListener('click', () => {
+            const shortCode = localStorage.getItem('megaStoreShortCode');
+            window.location.href = `short7.html#${shortCode}`;
+        });
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('megaStoreTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('megaStoreTheme', newTheme);
+        });
+    </script>
+</body>
+</html>

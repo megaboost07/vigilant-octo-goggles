@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3 of 9 - Scanning for Malware | Mega Store</title>
+    <meta name="description" content="Our advanced antivirus systems are scanning your file for malware, viruses, and other security threats. Mega Store ensures 100% safe downloads.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .step3-wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            padding: 20px 40px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+        }
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .step-num {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-muted);
+        }
+        .step-num.completed {
+            background: #10b981;
+            color: white;
+        }
+        .step-num.active {
+            background: var(--primary);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .ad-banner {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            margin: 20px 0;
+        }
+        .ad-sidebar-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 20px;
+        }
+        .sidebar-ads {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .skyscraper-ad {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            writing-mode: vertical-rl;
+        }
+        .main-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 35px;
+        }
+        .main-content h2 {
+            color: #ef4444;
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .main-content p {
+            line-height: 2.1;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        .scan-animation {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .scan-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--bg-primary);
+            border-radius: 15px;
+            min-width: 150px;
+        }
+        .scan-item i {
+            font-size: 2.5rem;
+            color: #10b981;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .scan-item.scanning i {
+            animation: scanPulse 0.8s infinite;
+        }
+        @keyframes scanPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .timer-bar {
+            background: var(--bg-primary);
+            height: 50px;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+        .timer-progress {
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: width 1s linear;
+        }
+        .proceed-btn {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 22px 70px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        .proceed-btn:disabled {
+            background: var(--bg-tertiary);
+            box-shadow: none;
+        }
+        @media (max-width: 1024px) {
+            .ad-sidebar-grid { grid-template-columns: 1fr; }
+            .sidebar-ads { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .skyscraper-ad { height: 250px; width: 300px; writing-mode: horizontal-tb; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mega Store" style="height: 40px;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="step3-wrapper">
+        <div class="step-indicator">
+            <div class="step-item"><div class="step-num completed"><i class="fas fa-check"></i></div><small>Verify</small></div>
+            <div class="step-item"><div class="step-num completed"><i class="fas fa-check"></i></div><small>Check</small></div>
+            <div class="step-item"><div class="step-num active">3</div><small>Scan</small></div>
+            <div class="step-item"><div class="step-num">4</div><small>Process</small></div>
+            <div class="step-item"><div class="step-num">5</div><small>Optimize</small></div>
+            <div class="step-item"><div class="step-num">6</div><small>Prepare</small></div>
+            <div class="step-item"><div class="step-num">7</div><small>Package</small></div>
+            <div class="step-item"><div class="step-num">8</div><small>Final</small></div>
+            <div class="step-item"><div class="step-num">9</div><small>Done</small></div>
+        </div>
+
+        <div class="ad-banner"><i class="fas fa-ad"></i> Leaderboard Ad - 728x90</div>
+
+        <div class="ad-sidebar-grid">
+            <div class="sidebar-ads">
+                <div class="skyscraper-ad"><i class="fas fa-ad"></i> Skyscraper 160x600</div>
+            </div>
+
+            <div class="main-content">
+                <h2><i class="fas fa-virus-slash"></i> Comprehensive Malware Scanning in Progress</h2>
+
+                <div class="scan-animation">
+                    <div class="scan-item scanning">
+                        <i class="fas fa-shield-virus"></i>
+                        <p>Antivirus Scan</p>
+                    </div>
+                    <div class="scan-item">
+                        <i class="fas fa-bug"></i>
+                        <p>Malware Check</p>
+                    </div>
+                    <div class="scan-item">
+                        <i class="fas fa-search"></i>
+                        <p>Heuristic Analysis</p>
+                    </div>
+                    <div class="scan-item">
+                        <i class="fas fa-fingerprint"></i>
+                        <p>Signature Match</p>
+                    </div>
+                </div>
+
+                <p>The digital threat landscape has never been more complex or more dangerous than it is today. Cybercriminals are constantly developing new methods to infiltrate systems, steal data, and cause disruption. At Mega Store, we recognize that protecting our users from these threats requires a comprehensive, multi-layered approach to security that goes far beyond simple file checking.</p>
+
+                <p>Our malware scanning infrastructure represents one of the most significant investments we have made in user protection. The system integrates multiple industry-leading antivirus engines, each with its own strengths and specializations, to provide coverage that no single solution could achieve alone. When a file enters our scanning pipeline, it is simultaneously analyzed by all of these engines, ensuring that threats are detected regardless of which engine might have the relevant signature or heuristic capability.</p>
+
+                <p>The first layer of our defense is signature-based detection. This traditional approach involves comparing files against a vast database of known malware signatures. Our signature database is updated in real-time, with new threat definitions pushed to our servers within minutes of their discovery by security researchers worldwide. This ensures that even the newest malware strains are caught before they can reach our users.</p>
+
+                <p>However, signature-based detection alone is insufficient in today's threat environment. Modern malware authors employ sophisticated techniques to evade signature detection, including polymorphism, metamorphism, and packing. To counter these evasion techniques, Mega Store employs advanced heuristic analysis that examines file behavior and structure for suspicious characteristics that might indicate malicious intent, even if no specific signature match is found.</p>
+
+                <p>Our heuristic engine analyzes hundreds of different file attributes and behaviors, looking for patterns that are commonly associated with malware. This includes examining API call sequences, code structure anomalies, entropy analysis to detect packed or encrypted sections, and behavioral simulation in sandboxed environments. The combination of these techniques allows us to identify zero-day threats that have never been seen before in the wild.</p>
+
+                <p>Machine learning plays an increasingly important role in our scanning infrastructure. We have developed proprietary algorithms that have been trained on millions of file samples, both malicious and benign. These models can identify subtle patterns and correlations that would be impossible for human analysts to detect, providing an additional layer of protection that continuously improves as it processes more data.</p>
+
+                <p>The scanning process also includes specific checks for different types of threats. Ransomware detection looks for encryption-related behaviors and known ransomware signatures. Spyware and adware detection identifies programs that might compromise user privacy or inject unwanted advertisements. Trojan detection focuses on files that masquerade as legitimate software while performing malicious actions in the background.</p>
+
+                <p>For executable files, we perform dynamic analysis in isolated sandbox environments. This allows us to observe the actual behavior of a program when it runs, catching threats that might not be visible through static analysis alone. The sandbox captures all system calls, network activity, file operations, and registry modifications, providing a comprehensive picture of what the program actually does.</p>
+
+                <p>Our commitment to security extends to the infrastructure itself. All scanning operations are performed in isolated, hardened environments that are regularly rebuilt from clean images to prevent any possibility of cross-contamination. The results of every scan are cryptographically signed to prevent tampering, and comprehensive logs are maintained for forensic analysis if needed.</p>
+
+                <p>We also maintain close relationships with the broader security community, sharing threat intelligence and collaborating on the detection of emerging threats. When a new malware campaign is discovered, we can often push protective updates to our users before the malware has a chance to spread widely. This collective defense approach benefits everyone in the ecosystem.</p>
+
+                <p>Transparency is another key aspect of our security approach. We believe users have the right to know what security measures are being applied to protect them. That's why we provide detailed information about our scanning processes and are always available to answer questions about our security practices. If you ever have concerns about a file or our security measures, our support team is ready to assist.</p>
+
+                <p>The malware landscape will continue to evolve, and so will our defenses. Mega Store is committed to staying at the cutting edge of security technology, continuously investing in new capabilities and partnerships that help us protect our users. Your safety is our highest priority, and we will never compromise on the security measures that keep you protected.</p>
+            </div>
+
+            <div class="sidebar-ads">
+                <div class="skyscraper-ad"><i class="fas fa-ad"></i> Skyscraper 160x600</div>
+            </div>
+        </div>
+
+        <div class="ad-banner"><i class="fas fa-ad"></i> Leaderboard Ad - 728x90</div>
+
+        <div class="timer-bar">
+            <div class="timer-progress" id="timerProgress" style="width: 100%;">Scanning... 12 seconds</div>
+        </div>
+
+        <button class="proceed-btn" id="continueBtn" disabled>
+            <i class="fas fa-arrow-right"></i> Proceed to Step 4
+        </button>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mega Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let timeLeft = 12;
+        const timerProgress = document.getElementById('timerProgress');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            const percent = (timeLeft / 12) * 100;
+            timerProgress.style.width = `${percent}%`;
+            timerProgress.textContent = `Scanning... ${timeLeft} seconds`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerProgress.textContent = 'Scan Complete!';
+                timerProgress.style.background = '#10b981';
+                continueBtn.disabled = false;
+            }
+        }, 1000);
+        
+        continueBtn.addEventListener('click', () => {
+            const shortCode = localStorage.getItem('megaStoreShortCode');
+            window.location.href = `short4.html#${shortCode}`;
+        });
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('megaStoreTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('megaStoreTheme', newTheme);
+        });
+    </script>
+</body>
+</html>

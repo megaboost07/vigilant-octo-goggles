@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Mega Store</title>
+    <meta name="description" content="Manage your Mega Store profile, update your information, and change your password.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+            color: white;
+        }
+        .profile-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+        }
+        .profile-card h3 {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-value {
+            font-weight: 600;
+        }
+        .action-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .action-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .action-item:hover {
+            background: var(--bg-tertiary);
+        }
+        .action-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .action-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .action-icon.blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .action-icon.green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .action-icon.orange { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        .action-icon.red { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+        .action-icon.purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 35px;
+            width: 90%;
+            max-width: 450px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mega Store" style="height: 45px;">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shortener.html">Shortener</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <a href="withdraw.html" class="btn btn-success btn-sm">
+                    <i class="fas fa-wallet"></i> ₹<span id="navBalance">0.00</span>
+                </a>
+                <button class="btn btn-danger btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i></button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <h2 id="profileName">User Name</h2>
+            <p style="color: var(--text-muted);" id="profileEmail">user@email.com</p>
+        </div>
+
+        <div class="profile-card">
+            <h3><i class="fas fa-info-circle" style="color: var(--primary);"></i> Account Information</h3>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-user"></i> Full Name</span>
+                <span class="info-value" id="displayName">-</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-envelope"></i> Email</span>
+                <span class="info-value" id="displayEmail">-</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-phone"></i> Phone</span>
+                <span class="info-value" id="displayPhone">-</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-university"></i> UPI ID</span>
+                <span class="info-value" id="displayUpi">-</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-calendar"></i> Member Since</span>
+                <span class="info-value" id="displayJoined">-</span>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <h3><i class="fas fa-chart-bar" style="color: var(--success);"></i> Statistics</h3>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-link"></i> Total Links</span>
+                <span class="info-value" id="displayLinks">0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-mouse-pointer"></i> Total Clicks</span>
+                <span class="info-value" id="displayClicks">0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-rupee-sign"></i> Total Earnings</span>
+                <span class="info-value" id="displayEarnings">₹0.00</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-wallet"></i> Available Balance</span>
+                <span class="info-value" style="color: var(--success);" id="displayBalance">₹0.00</span>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <h3><i class="fas fa-cog" style="color: var(--warning);"></i> Settings & Actions</h3>
+            <div class="action-list">
+                <div class="action-item" onclick="openModal('editModal')">
+                    <div class="action-left">
+                        <div class="action-icon blue"><i class="fas fa-edit"></i></div>
+                        <div>
+                            <h4>Edit Profile</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Update your personal information</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+                </div>
+                
+                <div class="action-item" onclick="openModal('passwordModal')">
+                    <div class="action-left">
+                        <div class="action-icon green"><i class="fas fa-lock"></i></div>
+                        <div>
+                            <h4>Change Password</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Update your account password</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+                </div>
+                
+                <div class="action-item" onclick="openModal('forgotModal')">
+                    <div class="action-left">
+                        <div class="action-icon orange"><i class="fas fa-key"></i></div>
+                        <div>
+                            <h4>Forgot Password</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Reset your password</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+                </div>
+                
+                <div class="action-item" onclick="window.location.href='dashboard.html'">
+                    <div class="action-left">
+                        <div class="action-icon purple"><i class="fas fa-tachometer-alt"></i></div>
+                        <div>
+                            <h4>Dashboard</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">View your stats and links</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+                </div>
+                
+                <div class="action-item" onclick="window.location.href='withdraw.html'">
+                    <div class="action-left">
+                        <div class="action-icon blue"><i class="fas fa-money-bill-wave"></i></div>
+                        <div>
+                            <h4>Withdraw Earnings</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Withdraw to your UPI</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+                </div>
+                
+                <div class="action-item" onclick="logout()">
+                    <div class="action-left">
+                        <div class="action-icon red"><i class="fas fa-sign-out-alt"></i></div>
+                        <div>
+                            <h4>Logout</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Sign out of your account</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Profile</h3>
+                <button class="modal-close" onclick="closeModal('editModal')">&times;</button>
+            </div>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-input" id="editFirstName" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-input" id="editLastName" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" id="editPhone" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">UPI ID</label>
+                    <input type="text" class="form-input" id="editUpi" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-lock"></i> Change Password</h3>
+                <button class="modal-close" onclick="closeModal('passwordModal')">&times;</button>
+            </div>
+            <form id="changePasswordForm">
+                <div class="form-group">
+                    <label class="form-label">Current Password</label>
+                    <input type="password" class="form-input" id="currentPassword" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <input type="password" class="form-input" id="newPassword" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm New Password</label>
+                    <input type="password" class="form-input" id="confirmNewPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-key"></i> Forgot Password</h3>
+                <button class="modal-close" onclick="closeModal('forgotModal')">&times;</button>
+            </div>
+            <form id="forgotPasswordForm">
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Enter your email address and we'll send you instructions to reset your password.</p>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="forgotEmail" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Reset Instructions</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mega Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Check login
+        const user = JSON.parse(localStorage.getItem('megaStoreUser'));
+        if (!user) {
+            window.location.href = 'login.html';
+        }
+        
+        // Load profile data
+        function loadProfile() {
+            if (user) {
+                document.getElementById('profileName').textContent = `${user.firstName} ${user.lastName}`;
+                document.getElementById('profileEmail').textContent = user.email;
+                document.getElementById('displayName').textContent = `${user.firstName} ${user.lastName}`;
+                document.getElementById('displayEmail').textContent = user.email;
+                document.getElementById('displayPhone').textContent = user.phone || '-';
+                document.getElementById('displayUpi').textContent = user.upiId || '-';
+                document.getElementById('displayJoined').textContent = new Date(user.createdAt).toLocaleDateString();
+                document.getElementById('displayLinks').textContent = user.totalLinks || 0;
+                document.getElementById('displayClicks').textContent = user.totalClicks || 0;
+                document.getElementById('displayEarnings').textContent = `₹${(user.totalEarnings || 0).toFixed(2)}`;
+                document.getElementById('displayBalance').textContent = `₹${(user.balance || 0).toFixed(2)}`;
+                document.getElementById('navBalance').textContent = (user.balance || 0).toFixed(2);
+                
+                // Set edit form values
+                document.getElementById('editFirstName').value = user.firstName;
+                document.getElementById('editLastName').value = user.lastName;
+                document.getElementById('editPhone').value = user.phone || '';
+                document.getElementById('editUpi').value = user.upiId || '';
+                document.getElementById('forgotEmail').value = user.email;
+            }
+        }
+        
+        loadProfile();
+        
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+        
+        // Edit profile form
+        document.getElementById('editProfileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const users = JSON.parse(localStorage.getItem('megaStoreUsers') || '[]');
+            const userIndex = users.findIndex(u => u.id === user.id);
+            
+            if (userIndex !== -1) {
+                users[userIndex].firstName = document.getElementById('editFirstName').value;
+                users[userIndex].lastName = document.getElementById('editLastName').value;
+                users[userIndex].phone = document.getElementById('editPhone').value;
+                users[userIndex].upiId = document.getElementById('editUpi').value;
+                
+                localStorage.setItem('megaStoreUsers', JSON.stringify(users));
+                localStorage.setItem('megaStoreUser', JSON.stringify(users[userIndex]));
+                
+                showNotification('Profile updated successfully!', 'success');
+                closeModal('editModal');
+                loadProfile();
+            }
+        });
+        
+        // Change password form
+        document.getElementById('changePasswordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+            
+            if (currentPassword !== user.password) {
+                showNotification('Current password is incorrect', 'error');
+                return;
+            }
+            
+            if (newPassword !== confirmNewPassword) {
+                showNotification('New passwords do not match', 'error');
+                return;
+            }
+            
+            const users = JSON.parse(localStorage.getItem('megaStoreUsers') || '[]');
+            const userIndex = users.findIndex(u => u.id === user.id);
+            
+            if (userIndex !== -1) {
+                users[userIndex].password = newPassword;
+                localStorage.setItem('megaStoreUsers', JSON.stringify(users));
+                localStorage.setItem('megaStoreUser', JSON.stringify(users[userIndex]));
+                
+                showNotification('Password changed successfully!', 'success');
+                closeModal('passwordModal');
+                document.getElementById('changePasswordForm').reset();
+            }
+        });
+        
+        // Forgot password form
+        document.getElementById('forgotPasswordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('forgotEmail').value;
+            const users = JSON.parse(localStorage.getItem('megaStoreUsers') || '[]');
+            const foundUser = users.find(u => u.email === email);
+            
+            if (foundUser) {
+                // Generate new random password
+                const newPass = Math.random().toString(36).slice(-8);
+                foundUser.password = newPass;
+                localStorage.setItem('megaStoreUsers', JSON.stringify(users));
+                
+                showNotification(`Your new password is: ${newPass}. Please change it after login.`, 'success');
+                closeModal('forgotModal');
+            } else {
+                showNotification('Email not found', 'error');
+            }
+        });
+        
+        // Logout
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('megaStoreUser');
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Close modal on outside click
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

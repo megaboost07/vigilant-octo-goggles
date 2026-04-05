@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Axon AI Shortener Support</title>
+    <meta name="description" content="Contact Axon AI Shortener support team. Get help with your account, withdrawals, or any questions about our URL shortening service.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🔗</div>
+                Axon AI
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shortener.html">Shortener</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="section" style="padding-top: 60px;">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-headset" style="color: var(--primary);"></i> Contact Us</h2>
+                <p>Have questions or need help? We're here for you. Reach out to our support team.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <!-- Contact Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-paper-plane"></i> Send us a Message</h3>
+                        <p class="card-subtitle">Fill out the form below and we'll get back to you</p>
+                    </div>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user"></i> Your Name
+                            </label>
+                            <input type="text" class="form-input" id="contactName" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input type="email" class="form-input" id="contactEmail" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-tag"></i> Subject
+                            </label>
+                            <select class="form-select" id="contactSubject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="account">Account Issues</option>
+                                <option value="withdrawal">Withdrawal Questions</option>
+                                <option value="payment">Payment Issues</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="report">Report Abuse</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-comment"></i> Message
+                            </label>
+                            <textarea class="form-textarea" id="contactMessage" placeholder="Describe your issue or question in detail..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" id="contactSubmitBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <div class="card" style="margin-bottom: 1.5rem;">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-address-card"></i> Contact Information</h3>
+                        </div>
+                        <div style="color: var(--text-secondary);">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1rem; background: var(--bg-primary); border-radius: var(--radius);">
+                                <div style="width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin-bottom: 0.25rem;">Email Us</h5>
+                                    <p style="margin: 0; font-size: 0.9rem;">support@axonshortener.com</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1rem; background: var(--bg-primary); border-radius: var(--radius);">
+                                <div style="width: 50px; height: 50px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin-bottom: 0.25rem;">Response Time</h5>
+                                    <p style="margin: 0; font-size: 0.9rem;">Within 24-48 hours</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: var(--radius);">
+                                <div style="width: 50px; height: 50px; background: var(--gradient-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin-bottom: 0.25rem;">Location</h5>
+                                    <p style="margin: 0; font-size: 0.9rem;">India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-share-alt"></i> Connect With Us</h3>
+                        </div>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="#" class="btn btn-secondary" style="flex: 1; min-width: 120px;" onclick="showNotification('Facebook page coming soon!', 'info')">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </a>
+                            <a href="#" class="btn btn-secondary" style="flex: 1; min-width: 120px;" onclick="showNotification('Twitter page coming soon!', 'info')">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                            <a href="#" class="btn btn-secondary" style="flex: 1; min-width: 120px;" onclick="showNotification('Instagram page coming soon!', 'info')">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="#" class="btn btn-secondary" style="flex: 1; min-width: 120px;" onclick="showNotification('Telegram channel coming soon!', 'info')">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Quick Links -->
+            <div class="card" style="margin-top: 3rem;">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                    <p class="card-subtitle">Quick answers to common questions</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-wallet"></i> How do I withdraw my earnings?</h5>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Go to the Withdraw page, enter your UPI ID and amount (minimum ₹100), and submit your request.</p>
+                    </div>
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-clock"></i> When will I receive my payment?</h5>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Payments are processed within 24-48 hours after your withdrawal request is approved.</p>
+                    </div>
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-link"></i> Why are my clicks not counting?</h5>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">We only count unique views from real users. Multiple clicks from the same IP are not counted.</p>
+                    </div>
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-ban"></i> My account is banned. What should I do?</h5>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Contact our support team with your account details. We'll review your case and respond accordingly.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="index.html#faq" class="btn btn-outline">
+                        <i class="fas fa-list"></i> View All FAQs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">🔗</div>
+                        Axon AI
+                    </a>
+                    <p>India's highest paying URL shortener. Earn ₹82 per 1000 views.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shortener.html">Shortener</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="mailto:support@axonshortener.com">support@axonshortener.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Axon AI Shortener. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Sending message...</p>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>

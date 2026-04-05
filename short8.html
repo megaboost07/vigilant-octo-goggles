@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 8 of 9 - Almost Ready | Mega Store</title>
+    <meta name="description" content="Your download is almost ready. Just one more step before you can access your file. Mega Store ensures the best download experience.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .step8-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .almost-there {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .almost-there h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .almost-there i {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: pulse-green 1.5s infinite;
+        }
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .step-track {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+        }
+        .step-track::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 5%;
+            width: 90%;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981 88%, var(--bg-tertiary) 88%);
+            z-index: 0;
+        }
+        .t-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 1;
+        }
+        .t-dot {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #10b981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .t-dot.current {
+            background: #f59e0b;
+            animation: bounce-yellow 1s infinite;
+        }
+        @keyframes bounce-yellow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .ad-row-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .ad-square {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+        .final-content {
+            background: var(--bg-card);
+            border-radius: 25px;
+            padding: 45px;
+            margin: 30px 0;
+        }
+        .final-content h2 {
+            color: #10b981;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+        .final-content p {
+            line-height: 2.3;
+            margin-bottom: 20px;
+        }
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 25px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+        }
+        .check-item i {
+            color: #10b981;
+            font-size: 1.5rem;
+        }
+        .final-timer {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .final-timer h3 {
+            font-size: 4rem;
+            margin: 10px 0;
+        }
+        .get-link-btn {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            padding: 25px 80px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+        .get-link-btn:disabled {
+            background: var(--bg-tertiary);
+            box-shadow: none;
+        }
+        @media (max-width: 768px) {
+            .ad-row-4 { grid-template-columns: repeat(2, 1fr); }
+            .step-track { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mega Store" style="height: 40px;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="step8-container">
+        <div class="almost-there">
+            <i class="fas fa-check-circle"></i>
+            <h1>Almost There!</h1>
+            <p>Step 8 of 9 - Your download is being finalized</p>
+        </div>
+
+        <div class="step-track">
+            <div class="t-step"><div class="t-dot"><i class="fas fa-check"></i></div><small>1</small></div>
+            <div class="t-step"><div class="t-dot"><i class="fas fa-check"></i></div><small>2</small></div>
+            <div class="t-step"><div class="t-dot"><i class="fas fa-check"></i></div><small>3</small></div>
+            <div class="t-step"><div class="t-dot"><i class="fas fa-check"></i></div><small>4</small></div>
+            <div class="t-step"><div class="t-dot"><i class="fas fa-check"></i></div><small>5</small></div>
+            <div class="t-step"><div class="t-dot"><i class="fas fa-check"></i></div><small>6</small></div>
+            <div class="t-step"><div class="t-dot"><i class="fas fa-check"></i></div><small>7</small></div>
+            <div class="t-step"><div class="t-dot current">8</div><small>8</small></div>
+            <div class="t-step"><div class="t-dot">9</div><small>9</small></div>
+        </div>
+
+        <div class="ad-row-4">
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+        </div>
+
+        <div class="final-content">
+            <h2><i class="fas fa-flag-checkered"></i> Finalizing Your Download</h2>
+
+            <p>Congratulations! You've made it to the final preparation stage. Your file has successfully passed through all our verification, security, and optimization processes. It is now being prepared for final delivery, with just a few last-minute checks to ensure everything is perfect.</p>
+
+            <p>At this stage, our systems are performing the final assembly of your download package. All the components - the optimized file, verification data, metadata, and any additional materials - are being brought together into a cohesive package that is ready for delivery. This assembly process is carefully orchestrated to ensure that nothing is missed.</p>
+
+            <div class="checklist">
+                <div class="check-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>File verified and integrity confirmed</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Security scan completed - no threats found</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Optimization applied - reduced size by up to 70%</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Package prepared with all components</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Quality assurance checks passed</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Ready for delivery to your device</span>
+                </div>
+            </div>
+
+            <p>We want to take a moment to thank you for choosing Mega Store for your download needs. We understand that you have many options when it comes to downloading content from the internet, and we appreciate the trust you've placed in us. Our team works tirelessly to ensure that every download experience meets the high standards that our users expect and deserve.</p>
+
+            <p>The comprehensive process you've just witnessed is our commitment to quality in action. While it may have taken a few moments longer than a simple direct download, these steps are essential for ensuring that you receive a file that is safe, optimized, and ready to use. We believe that this investment of time is well worth the peace of mind and quality that it provides.</p>
+
+            <p>As you prepare to receive your download, we want to remind you of some best practices for managing downloaded files. Always scan files with your local antivirus software, even if they've been scanned by our systems. Keep your operating system and applications updated to ensure that you have the latest security patches. And be cautious about opening files from unknown sources, even if they appear to be legitimate.</p>
+
+            <p>If you experience any issues with your download, our support team is here to help. Whether it's a slow download speed, a corrupted file, or any other concern, we're committed to resolving your issue quickly and effectively. You can reach us through our contact page or support email, and we'll do our best to assist you.</p>
+
+            <p>We also encourage you to explore the other features and services that Mega Store offers. From our advanced link shortening capabilities to our comprehensive analytics dashboard, there are many tools available to help you manage and track your downloads. If you haven't already, consider creating an account to unlock the full potential of our platform.</p>
+
+            <p>Your feedback is invaluable to us. If you have suggestions for how we can improve our service, or if there's a feature you'd like to see added, please let us know. We are constantly working to enhance Mega Store based on the needs and preferences of our users, and your input plays a crucial role in shaping our development priorities.</p>
+
+            <p>Finally, we hope that your experience with Mega Store has been positive and that you'll consider using our service for your future download needs. We are committed to continuous improvement and will keep working to make Mega Store the best download platform available. Thank you for being part of our community.</p>
+        </div>
+
+        <div class="ad-row-4">
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+            <div class="ad-square"><i class="fas fa-ad fa-lg"></i></div>
+        </div>
+
+        <div class="final-content">
+            <h2><i class="fas fa-lightbulb"></i> Tips for a Great Download Experience</h2>
+            
+            <p>To ensure the best possible download experience, there are a few things you can do. First, make sure you have a stable internet connection. While our systems are designed to handle interruptions gracefully, a stable connection will result in faster and more reliable downloads. If you're on a wireless connection, try to stay within range of your router.</p>
+
+            <p>Consider the timing of your download as well. During peak hours, when many users are online, download speeds may be slightly slower due to increased network congestion. If possible, try downloading during off-peak hours for the fastest speeds. Early mornings and late nights are often the best times for maximum performance.</p>
+
+            <p>Make sure you have enough storage space on your device before starting the download. Running out of space mid-download can cause issues and may require you to start over. It's a good idea to have at least twice the file size available as free space to ensure smooth operation.</p>
+
+            <p>If you're downloading large files, consider using a download manager that supports resumption. While Mega Store's built-in systems handle interruptions well, a dedicated download manager can provide additional features like scheduling, bandwidth limiting, and more detailed progress tracking.</p>
+        </div>
+
+        <div class="final-timer">
+            <p>Final preparation in progress...</p>
+            <h3 id="timer">5</h3>
+            <p>seconds remaining</p>
+        </div>
+
+        <button class="get-link-btn" id="continueBtn" disabled>
+            <i class="fas fa-arrow-right"></i> Get Your Link
+        </button>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mega Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let timeLeft = 5;
+        const timerDisplay = document.getElementById('timer');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                continueBtn.disabled = false;
+            }
+        }, 1000);
+        
+        continueBtn.addEventListener('click', () => {
+            const shortCode = localStorage.getItem('megaStoreShortCode');
+            window.location.href = `finalLink.html#${shortCode}`;
+        });
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('megaStoreTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('megaStoreTheme', newTheme);
+        });
+    </script>
+</body>
+</html>
